@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b801eba1-6b20-474e-a089-ca28f2635b05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/AddressBook/AddressBookGUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fileReaderSample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/filereaderdemo/hello-view.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="b801eba1-6b20-474e-a089-ca28f2635b05" name="Changes" comment="Beginning the AddressBookGUI have some rudimentary code" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,11 +88,32 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708355181269</updated>
-      <workItem from="1708355182458" duration="3843000" />
+      <workItem from="1708355182458" duration="4191000" />
     </task>
+    <task id="LOCAL-00001" summary="Beginning the AddressBookGUI have some rudimentary code">
+      <option name="closed" value="true" />
+      <created>1708359729946</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708359729947</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Beginning the AddressBookGUI have some rudimentary code">
+      <option name="closed" value="true" />
+      <created>1708359737465</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1708359737465</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Beginning the AddressBookGUI have some rudimentary code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Beginning the AddressBookGUI have some rudimentary code" />
   </component>
 </project>
