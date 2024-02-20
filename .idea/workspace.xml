@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b801eba1-6b20-474e-a089-ca28f2635b05" name="Changes" comment="Beginning the AddressBookGUI have some rudimentary code" />
+    <list default="true" id="b801eba1-6b20-474e-a089-ca28f2635b05" name="Changes" comment="Beginning the AddressBookGUI have some rudimentary code">
+      <change afterPath="$PROJECT_DIR$/src/main/java/AddressBook/fileReaderSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercise17_05.dat" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise17_05.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contacts.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AddressBook/AddressBookGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AddressBook/AddressBookGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AddressBook/ContactManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AddressBook/ContactManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lol/fileReaderSample.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,18 +24,25 @@
       <list>
         <option value="JavaFXApplication" />
         <option value="Class" />
+        <option value="module-info" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "condorthe2nd"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;condorthe2nd&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -35,6 +51,9 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -45,33 +64,40 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2cagbvnuxyc0xJ5fRn5pmsPZqP8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.AddressBookGUI.executor": "Run",
-    "Application.fileReaderSample.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.github.copilot.settings.ApplicationConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AddressBook.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AddressBookGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Exercise17_09.executor&quot;: &quot;Run&quot;,
+    &quot;Application.fileReaderSample.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\yitzy\IdeaProjects\FileReaderDemo\src\main\java\AddressBook" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.AddressBookGUI">
     <configuration name="AddressBookGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/openjdk-21.0.2" />
@@ -116,6 +142,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
+        <option value="jdk-15.0.2-corretto-15.0.2-4caba194b151-9bc2d75a" />
         <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
       </set>
     </attachedChunks>
@@ -128,7 +155,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708355181269</updated>
-      <workItem from="1708355182458" duration="9160000" />
+      <workItem from="1708355182458" duration="9685000" />
+      <workItem from="1708438752756" duration="20191000" />
     </task>
     <task id="LOCAL-00001" summary="Beginning the AddressBookGUI have some rudimentary code">
       <option name="closed" value="true" />
@@ -154,7 +182,31 @@
       <option name="project" value="LOCAL" />
       <updated>1708360090950</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Beginning the AddressBookGUI have some rudimentary code">
+      <option name="closed" value="true" />
+      <created>1708437502500</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1708437502500</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Beginning the AddressBookGUI have some rudimentary code">
+      <option name="closed" value="true" />
+      <created>1708457969503</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1708457969503</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Beginning the AddressBookGUI have some rudimentary code">
+      <option name="closed" value="true" />
+      <created>1708458060921</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1708458060921</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,6 +224,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="More or less complete, stuck on elements, including first last and previous buttons calling, also need to limit variables to the correct" />
     <MESSAGE value="Beginning the AddressBookGUI have some rudimentary code" />
     <option name="LAST_COMMIT_MESSAGE" value="Beginning the AddressBookGUI have some rudimentary code" />
   </component>
