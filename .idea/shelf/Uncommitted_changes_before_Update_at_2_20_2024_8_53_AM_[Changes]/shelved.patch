@@ -1,0 +1,545 @@
+Index: src/main/java/AddressBook/AddressBookGUI.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package AddressBook;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.control.TextField;\r\nimport javafx.scene.layout.HBox;\r\nimport javafx.scene.layout.VBox;\r\nimport javafx.stage.Stage;\r\n\r\npublic class AddressBookGUI extends Application {\r\n    VBox root = new VBox();\r\n    HBox nameAndNameLabel = new HBox();\r\n    HBox streetAndStreetLabel = new HBox();\r\n    HBox cityStateZipWithLabel = new HBox();\r\n    HBox Buttons = new HBox();\r\n\r\n    Label nameLabel = new Label(\"Name\");\r\n    Label streetLabel = new Label(\"Street\");\r\n    Label City = new Label(\"City\");\r\n    Label State = new Label(\"State\");\r\n    Label Zip = new Label(\"Zip\");\r\n\r\n    TextField nameTextField = new TextField();\r\n    TextField streetTextField = new TextField();\r\n    TextField cityTextField = new TextField();\r\n    TextField stateTextField = new TextField();\r\n    TextField zipTextField = new TextField();\r\n\r\n    @Override\r\n    public void start(Stage primaryStage) {\r\n        nameAndNameLabel.getChildren().addAll(nameLabel, nameTextField);\r\n        streetAndStreetLabel.getChildren().addAll(streetLabel, streetTextField);\r\n        cityStateZipWithLabel.getChildren().addAll(City, cityTextField, State, stateTextField, Zip, zipTextField);\r\n        root.getChildren().addAll(nameAndNameLabel, streetAndStreetLabel, cityStateZipWithLabel, Buttons);\r\n        primaryStage.setScene(new Scene(root, 300, 200));\r\n        primaryStage.show();\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        launch(args);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/AddressBook/AddressBookGUI.java b/src/main/java/AddressBook/AddressBookGUI.java
+--- a/src/main/java/AddressBook/AddressBookGUI.java	(revision 44b65bc189cfb524379aa935d1478a046b6453ea)
++++ b/src/main/java/AddressBook/AddressBookGUI.java	(date 1708436934591)
+@@ -1,7 +1,9 @@
+ package AddressBook;
+ 
+ import javafx.application.Application;
++import javafx.geometry.Insets;
+ import javafx.scene.Scene;
++import javafx.scene.control.Button;
+ import javafx.scene.control.Label;
+ import javafx.scene.control.TextField;
+ import javafx.scene.layout.HBox;
+@@ -22,22 +24,75 @@
+     Label Zip = new Label("Zip");
+ 
+     TextField nameTextField = new TextField();
++
+     TextField streetTextField = new TextField();
+     TextField cityTextField = new TextField();
+     TextField stateTextField = new TextField();
+     TextField zipTextField = new TextField();
+ 
++    //add button
++    Button addButton = new Button("Add");
++
++    //first button
++    Button firstButton = new Button("First");
++
++    //next button
++    Button nextButton = new Button("Next");
++
++    //previous button
++    Button previousButton = new Button("Previous");
++
++    //last button
++    Button lastButton = new Button("Last");
++
++    //update button
++    Button updateButton = new Button("Update");
++
++
+     @Override
+     public void start(Stage primaryStage) {
++        primaryStage.setTitle("Address Book");
++        nameLabel.setPadding(new Insets(10));
++        streetLabel.setPadding(new Insets(10));
++        City.setPadding(new Insets(10));
++        State.setPadding(new Insets(10));
++        Zip.setPadding(new Insets(10));
++
++        nameTextField.setPrefWidth(200); // Set the width to 200
++        streetTextField.setPrefWidth(200); // Set the width to 200
++        cityTextField.setPrefWidth(20); // Set the width to 100
++        stateTextField.setPrefWidth(20); // Set the width to 50
++        zipTextField.setPrefWidth(20); // Set the width to 50
++        nameAndNameLabel.setPadding(new Insets(10));
++        streetAndStreetLabel.setPadding(new Insets(10));
++        cityStateZipWithLabel.setPadding(new Insets(10));
++        Buttons.setPadding(new Insets(10));
++
++        addButton();
++
++
+         nameAndNameLabel.getChildren().addAll(nameLabel, nameTextField);
+         streetAndStreetLabel.getChildren().addAll(streetLabel, streetTextField);
+         cityStateZipWithLabel.getChildren().addAll(City, cityTextField, State, stateTextField, Zip, zipTextField);
++        Buttons.getChildren().addAll(addButton, firstButton, nextButton, previousButton, lastButton, updateButton);
+         root.getChildren().addAll(nameAndNameLabel, streetAndStreetLabel, cityStateZipWithLabel, Buttons);
+-        primaryStage.setScene(new Scene(root, 300, 200));
++        primaryStage.setScene(new Scene(root, 500, 300));
+         primaryStage.show();
++
++
++
+     }
++
++    private void addButton() {
++        addButton.setOnAction(e -> {
++            Contact contact = new Contact(nameTextField.getText(), streetTextField.getText(), cityTextField.getText(), stateTextField.getText(), zipTextField.getText());
++            SaveContactToFile.writeContactToFile(contact);
++        });
++    }
++
++
+ 
+     public static void main(String[] args) {
+         launch(args);
+     }
+-}
+\ No newline at end of file
++}
+Index: src/main/java/fileReaderSample.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fileReaderSample.java b/src/main/java/AddressBook/fileReaderSample.java
+rename from src/main/java/fileReaderSample.java
+rename to src/main/java/AddressBook/fileReaderSample.java
+--- a/src/main/java/fileReaderSample.java	(revision 44b65bc189cfb524379aa935d1478a046b6453ea)
++++ b/src/main/java/AddressBook/fileReaderSample.java	(date 1708360657429)
+@@ -1,3 +1,5 @@
++package AddressBook;
++
+ import java.io.FileInputStream;
+ import java.io.FileOutputStream;
+ import java.io.IOException;
+Index: src/main/java/module-info.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/module-info.java b/src/main/java/module-info.java
+new file mode 100644
+--- /dev/null	(date 1708360636085)
++++ b/src/main/java/module-info.java	(date 1708360636085)
+@@ -0,0 +1,7 @@
++module someproject {
++    requires javafx.controls;
++    requires javafx.fxml;
++
++    opens AddressBook to javafx.fxml;
++    exports AddressBook;
++}
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"b801eba1-6b20-474e-a089-ca28f2635b05\" name=\"Changes\" comment=\"Beginning the AddressBookGUI have some rudimentary code\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n        <option value=\"JavaFXApplication\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHome\" value=\"Use Maven wrapper\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"ProjectErrors\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\"><![CDATA[{\r\n  \"associatedIndex\": 4\r\n}]]></component>\r\n  <component name=\"ProjectId\" id=\"2cagbvnuxyc0xJ5fRn5pmsPZqP8\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.AddressBookGUI.executor\": \"Run\",\r\n    \"Application.fileReaderSample.executor\": \"Run\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"git-widget-placeholder\": \"main\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"fileReaderSample\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"ALTERNATIVE_JRE_PATH\" value=\"$USER_HOME$/.jdks/openjdk-21.0.2\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH_ENABLED\" value=\"true\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"fileReaderSample\" />\r\n      <module name=\"FileReaderDemo\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.fileReaderSample\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"b801eba1-6b20-474e-a089-ca28f2635b05\" name=\"Changes\" comment=\"\" />\r\n      <created>1708355181269</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1708355181269</updated>\r\n      <workItem from=\"1708355182458\" duration=\"4191000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Beginning the AddressBookGUI have some rudimentary code\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708359729946</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708359729947</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Beginning the AddressBookGUI have some rudimentary code\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708359737465</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708359737465</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Beginning the AddressBookGUI have some rudimentary code\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Beginning the AddressBookGUI have some rudimentary code\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 44b65bc189cfb524379aa935d1478a046b6453ea)
++++ b/.idea/workspace.xml	(date 1708436934996)
+@@ -4,7 +4,16 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="b801eba1-6b20-474e-a089-ca28f2635b05" name="Changes" comment="Beginning the AddressBookGUI have some rudimentary code" />
++    <list default="true" id="b801eba1-6b20-474e-a089-ca28f2635b05" name="Changes" comment="Beginning the AddressBookGUI have some rudimentary code">
++      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/AddressBook/Contact.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/AddressBook/SaveContactToFile.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Exercise17_05.dat" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise17_05.dat" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/AddressBook/AddressBookGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AddressBook/AddressBookGUI.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/fileReaderSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AddressBook/fileReaderSample.java" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -13,14 +22,28 @@
+   <component name="FileTemplateManagerImpl">
+     <option name="RECENT_TEMPLATES">
+       <list>
++        <option value="JavaFXApplication" />
+         <option value="Class" />
+-        <option value="JavaFXApplication" />
+       </list>
+     </option>
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
++  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
++  "lastFilter": {
++    "state": "OPEN",
++    "assignee": "condorthe2nd"
++  }
++}]]></component>
++  <component name="GithubPullRequestsUISettings">
++    <option name="selectedUrlAndAccountId">
++      <UrlAndAccount>
++        <option name="accountId" value="c5239bef-1497-4b46-b9b2-16e8aef3fe42" />
++        <option name="url" value="https://github.com/condorthe2nd/Address-Book.git" />
++      </UrlAndAccount>
++    </option>
++  </component>
+   <component name="MavenImportPreferences">
+     <option name="generalSettings">
+       <MavenGeneralSettings>
+@@ -29,7 +52,7 @@
+     </option>
+   </component>
+   <component name="ProblemsViewState">
+-    <option name="selectedTabId" value="ProjectErrors" />
++    <option name="selectedTabId" value="CurrentFile" />
+   </component>
+   <component name="ProjectColorInfo"><![CDATA[{
+   "associatedIndex": 4
+@@ -57,18 +80,43 @@
+     "vue.rearranger.settings.migration": "true"
+   }
+ }]]></component>
+-  <component name="RunManager">
++  <component name="RunManager" selected="Application.AddressBookGUI">
++    <configuration name="AddressBookGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/openjdk-21.0.2" />
++      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
++      <envs>
++        <env name="--module-path /path/to/JavaFX/lib --add-modules" value="javafx.controls" />
++      </envs>
++      <option name="MAIN_CLASS_NAME" value="AddressBook.AddressBookGUI" />
++      <module name="FileReaderDemo" />
++      <option name="PROGRAM_PARAMETERS" value="--module-path /path/to/JavaFX/lib --add-modules=javafx.controls" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="AddressBook.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
+     <configuration name="fileReaderSample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/openjdk-21.0.2" />
+       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+-      <option name="MAIN_CLASS_NAME" value="fileReaderSample" />
++      <option name="MAIN_CLASS_NAME" value="AddressBook.fileReaderSample" />
+       <module name="FileReaderDemo" />
++      <option name="PROGRAM_PARAMETERS" value="--module-path /path/to/JavaFX/lib --add-modules=javafx.controls" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
++    <list>
++      <item itemvalue="Application.AddressBookGUI" />
++      <item itemvalue="Application.fileReaderSample" />
++    </list>
+     <recent_temporary>
+       <list>
++        <item itemvalue="Application.AddressBookGUI" />
+         <item itemvalue="Application.fileReaderSample" />
+       </list>
+     </recent_temporary>
+@@ -88,7 +136,7 @@
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+       <updated>1708355181269</updated>
+-      <workItem from="1708355182458" duration="4191000" />
++      <workItem from="1708355182458" duration="8828000" />
+     </task>
+     <task id="LOCAL-00001" summary="Beginning the AddressBookGUI have some rudimentary code">
+       <option name="closed" value="true" />
+@@ -106,11 +154,30 @@
+       <option name="project" value="LOCAL" />
+       <updated>1708359737465</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="Beginning the AddressBookGUI have some rudimentary code">
++      <option name="closed" value="true" />
++      <created>1708360090950</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1708360090950</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Beginning the AddressBookGUI have some rudimentary code" />
+Index: src/main/java/AddressBook/Contact.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/AddressBook/Contact.java b/src/main/java/AddressBook/Contact.java
+new file mode 100644
+--- /dev/null	(date 1708375788722)
++++ b/src/main/java/AddressBook/Contact.java	(date 1708375788722)
+@@ -0,0 +1,57 @@
++package AddressBook;
++
++public class Contact implements java.io.Serializable {
++    private String name;
++    private String street;
++    private String city;
++    private String state;
++    private String zip;
++
++    public Contact(String name, String street, String city, String state, String zip) {
++        this.name = name;
++        this.street = street;
++        this.city = city;
++        this.state = state;
++        this.zip = zip;
++    }
++
++    public String getName() {
++        return name;
++    }
++
++    public String getStreet() {
++        return street;
++    }
++
++    public String getCity() {
++        return city;
++    }
++
++    public String getState() {
++        return state;
++    }
++
++    public String getZip() {
++        return zip;
++    }
++
++    public void setName(String name) {
++        this.name = name;
++    }
++
++    public void setStreet(String street) {
++        this.street = street;
++    }
++
++    public void setCity(String city) {
++        this.city = city;
++    }
++
++    public void setState(String state) {
++        this.state = state;
++    }
++
++    public void setZip(String zip) {
++        this.zip = zip;
++    }
++}
+Index: .idea/uiDesigner.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/uiDesigner.xml b/.idea/uiDesigner.xml
+new file mode 100644
+--- /dev/null	(date 1708360657486)
++++ b/.idea/uiDesigner.xml	(date 1708360657486)
+@@ -0,0 +1,124 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Palette2">
++    <group name="Swing">
++      <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="1" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="com.intellij.uiDesigner.VSpacer" tooltip-text="Vertical Spacer" icon="/com/intellij/uiDesigner/icons/vspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="1" anchor="0" fill="2" />
++      </item>
++      <item class="javax.swing.JPanel" icon="/com/intellij/uiDesigner/icons/panel.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JScrollPane" icon="/com/intellij/uiDesigner/icons/scrollPane.svg" removable="false" auto-create-binding="false" can-attach-label="true">
++        <default-constraints vsize-policy="7" hsize-policy="7" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JButton" icon="/com/intellij/uiDesigner/icons/button.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="0" fill="1" />
++        <initial-values>
++          <property name="text" value="Button" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JRadioButton" icon="/com/intellij/uiDesigner/icons/radioButton.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="RadioButton" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JCheckBox" icon="/com/intellij/uiDesigner/icons/checkBox.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="CheckBox" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JLabel" icon="/com/intellij/uiDesigner/icons/label.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="Label" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JTextField" icon="/com/intellij/uiDesigner/icons/textField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JPasswordField" icon="/com/intellij/uiDesigner/icons/passwordField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JFormattedTextField" icon="/com/intellij/uiDesigner/icons/formattedTextField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextArea" icon="/com/intellij/uiDesigner/icons/textArea.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextPane" icon="/com/intellij/uiDesigner/icons/textPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JEditorPane" icon="/com/intellij/uiDesigner/icons/editorPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JComboBox" icon="/com/intellij/uiDesigner/icons/comboBox.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="2" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JTable" icon="/com/intellij/uiDesigner/icons/table.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JList" icon="/com/intellij/uiDesigner/icons/list.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="2" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTree" icon="/com/intellij/uiDesigner/icons/tree.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTabbedPane" icon="/com/intellij/uiDesigner/icons/tabbedPane.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSplitPane" icon="/com/intellij/uiDesigner/icons/splitPane.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSpinner" icon="/com/intellij/uiDesigner/icons/spinner.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSlider" icon="/com/intellij/uiDesigner/icons/slider.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSeparator" icon="/com/intellij/uiDesigner/icons/separator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JProgressBar" icon="/com/intellij/uiDesigner/icons/progressbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JToolBar" icon="/com/intellij/uiDesigner/icons/toolbar.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1">
++          <preferred-size width="-1" height="20" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JToolBar$Separator" icon="/com/intellij/uiDesigner/icons/toolbarSeparator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JScrollBar" icon="/com/intellij/uiDesigner/icons/scrollbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="0" anchor="0" fill="2" />
++      </item>
++    </group>
++  </component>
++</project>
+\ No newline at end of file
+Index: src/main/java/AddressBook/SaveContactToFile.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/AddressBook/SaveContactToFile.java b/src/main/java/AddressBook/SaveContactToFile.java
+new file mode 100644
+--- /dev/null	(date 1708437212757)
++++ b/src/main/java/AddressBook/SaveContactToFile.java	(date 1708437212757)
+@@ -0,0 +1,29 @@
++package AddressBook;
++
++import java.io.*;
++
++public class SaveContactToFile {
++    public static void writeContactToFile(Contact contact) {
++        try (RandomAccessFile randomAccessFile = new RandomAccessFile("contact.txt", "rw");
++             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(randomAccessFile.getFD()))) {
++            out.writeObject(contact);
++        } catch (IOException e) {
++            e.printStackTrace();
++        }
++    }
++
++    public static Contact readContactFromFile() {
++        Contact contact = null;
++        try (RandomAccessFile randomAccessFile = new RandomAccessFile("contact.txt", "r");
++             ObjectInputStream in = new ObjectInputStream(new FileInputStream(randomAccessFile.getFD()))) {
++            contact = (Contact) in.readObject();
++        } catch (IOException | ClassNotFoundException e) {
++            e.printStackTrace();
++        }
++        return contact;
++    }
++
++    public static Contact readNextContactFromFile(){
++        
++    }
++}
+\ No newline at end of file
+Index: Exercise17_05.dat
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[1, 2, 3, 4, 5]\r\n2024/02/19 11:21:13\r\n5.5
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Exercise17_05.dat b/Exercise17_05.dat
+--- a/Exercise17_05.dat	(revision 44b65bc189cfb524379aa935d1478a046b6453ea)
++++ b/Exercise17_05.dat	(date 1708360384476)
+@@ -1,3 +1,3 @@
+ [1, 2, 3, 4, 5]
+-2024/02/19 11:21:13
++2024/02/19 11:33:04
+ 5.5
+\ No newline at end of file
